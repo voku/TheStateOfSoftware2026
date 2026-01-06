@@ -3,7 +3,7 @@ import { BuildMode } from './types';
 import { LAYERS } from './constants';
 import InfoPanel from './components/InfoPanel';
 import BuildingVisualizer from './components/BuildingVisualizer';
-import { Settings2, X } from 'lucide-react';
+import { Settings2, X, Github } from 'lucide-react';
 
 const App: React.FC = () => {
   const [mode, setMode] = useState<BuildMode>(BuildMode.WILD_WEST);
@@ -34,28 +34,42 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Mode Switcher */}
-        <div className="flex items-center bg-slate-100 p-1 rounded-lg border border-slate-200">
-           <button 
-             onClick={() => setMode(BuildMode.WILD_WEST)}
-             className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all duration-300 ease-out ${
-               mode === BuildMode.WILD_WEST 
-               ? 'bg-amber-600 text-white shadow-md shadow-amber-900/20' 
-               : 'text-slate-500 hover:text-slate-900'
-             }`}
-           >
-             Current Reality (2026)
-           </button>
-           <button 
-             onClick={() => setMode(BuildMode.INDUSTRIAL)}
-             className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all duration-300 ease-out ${
-               mode === BuildMode.INDUSTRIAL 
-               ? 'bg-indigo-600 text-white shadow-md shadow-indigo-900/20' 
-               : 'text-slate-500 hover:text-slate-900'
-             }`}
-           >
-             Future Standard
-           </button>
+        <div className="flex items-center gap-4">
+          {/* GitHub Contribution Link */}
+          <a 
+            href="https://github.com/voku/TheStateOfSoftware2026/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-3 py-1.5 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all duration-200"
+            aria-label="Contribute on GitHub"
+          >
+            <Github className="w-4 h-4" />
+            <span className="text-xs font-medium hidden sm:inline">Contribute</span>
+          </a>
+
+          {/* Mode Switcher */}
+          <div className="flex items-center bg-slate-100 p-1 rounded-lg border border-slate-200">
+             <button 
+               onClick={() => setMode(BuildMode.WILD_WEST)}
+               className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all duration-300 ease-out ${
+                 mode === BuildMode.WILD_WEST 
+                 ? 'bg-amber-600 text-white shadow-md shadow-amber-900/20' 
+                 : 'text-slate-500 hover:text-slate-900'
+               }`}
+             >
+               Current Reality (2026)
+             </button>
+             <button 
+               onClick={() => setMode(BuildMode.INDUSTRIAL)}
+               className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all duration-300 ease-out ${
+                 mode === BuildMode.INDUSTRIAL 
+                 ? 'bg-indigo-600 text-white shadow-md shadow-indigo-900/20' 
+                 : 'text-slate-500 hover:text-slate-900'
+               }`}
+             >
+               Future Standard
+             </button>
+          </div>
         </div>
       </header>
 
